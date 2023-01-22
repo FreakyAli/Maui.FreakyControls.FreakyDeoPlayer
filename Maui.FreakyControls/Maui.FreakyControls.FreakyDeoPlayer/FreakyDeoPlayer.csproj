@@ -1,36 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
 	<PropertyGroup>
 		<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
-
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
 		<RootNamespace>Maui.FreakyControls</RootNamespace>
 		<AssemblyName>FreakyDeoPlayer</AssemblyName>
+
+		<AssemblyVersion>0.0.1</AssemblyVersion>
+		<AssemblyFileVersion>0.0.1</AssemblyFileVersion>
+		<Version>0.0.1</Version>
+		<NeutralLanguage>en</NeutralLanguage>
+
+		<PackageId>FreakyControls.FreakyDeoPlayer</PackageId>
+		<LangVersion>latest</LangVersion>
+		<Authors>FreakyAli</Authors>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Description>Maui.FreakyControls is a free OSS UI Kit for .NET MAUI which provides a set of controls and utilities to build modern mobile apps.</Description>
+		<PackageIcon>maui_toolkit.png</PackageIcon>
+		<RepositoryUrl>https://github.com/FreakyAli/Maui.FreakyControls.FreakyDeoPlayer</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/FreakyAli/Maui.FreakyControls.FreakyDeoPlayer</PackageProjectUrl>
+
+		<PackageTags>Maui dotnet.Maui .net Maui FreakyControls Video VideoPlayer</PackageTags>
+		<PackageReleaseNotes>Basic implementation for Freaky Video Player Control</PackageReleaseNotes>
+		<Copyright>Copyright 2023</Copyright>
+		<PackOnBuild>true</PackOnBuild>
+		<SynchReleaseVersion>false</SynchReleaseVersion>
+		<NoWarn>1701;1702;IL2121;CS1573;CS1591;CS1570;CS8632</NoWarn>
+
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+		<CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<LangVersion>latest</LangVersion>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
-	  <CreatePackage>false</CreatePackage>
-	</PropertyGroup>
 	<ItemGroup>
-	  <None Remove="Platforms\Android\" />
-	  <None Remove="Platforms\iOS\" />
-	  <None Remove="Platforms\MacCatalyst\" />
-	  <None Remove="Platforms\Windows\" />
-	  <None Remove="Shared\" />
+		<None Remove="Platforms\Android\" />
+		<None Remove="Platforms\iOS\" />
+		<None Remove="Platforms\MacCatalyst\" />
+		<None Remove="Platforms\Windows\" />
+		<None Remove="Shared\" />
+		<None Remove="Shared\Source\" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="Platforms\Android\" />
-	  <Folder Include="Platforms\iOS\" />
-	  <Folder Include="Platforms\MacCatalyst\" />
-	  <Folder Include="Platforms\Windows\" />
-	  <Folder Include="Shared\" />
+		<Folder Include="Platforms\Android\" />
+		<Folder Include="Platforms\iOS\" />
+		<Folder Include="Platforms\MacCatalyst\" />
+		<Folder Include="Platforms\Windows\" />
+		<Folder Include="Shared\" />
+		<Folder Include="Shared\Source\" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-android'">
-	  <PackageReference Include="Xam.Plugins.Android.ExoPlayer.Core" Version="2.18.8" />
+		<PackageReference Include="Xam.Plugins.Android.ExoPlayer" Version="2.18.8" />
+		<PackageReference Include="Xam.Plugins.Android.ExoPlayer.Transformer" Version="2.18.8" />
 	</ItemGroup>
 </Project>

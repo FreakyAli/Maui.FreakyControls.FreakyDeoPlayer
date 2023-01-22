@@ -49,4 +49,7 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Maui.FreakyControls.FreakyDeoPlayer\FreakyDeoPlayer.csproj" />
+	</ItemGroup>
 </Project>
