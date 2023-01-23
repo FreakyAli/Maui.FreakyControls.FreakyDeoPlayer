@@ -1,1 +1,1 @@
-# Maui.FreakyControls.FreakyDeoPlayer
+# FreakyDeoPlayer
