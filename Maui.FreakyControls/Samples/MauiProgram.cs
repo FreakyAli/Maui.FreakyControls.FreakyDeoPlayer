@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Maui.FreakyControls;
+
 namespace Samples;
 
 public static class MauiProgram

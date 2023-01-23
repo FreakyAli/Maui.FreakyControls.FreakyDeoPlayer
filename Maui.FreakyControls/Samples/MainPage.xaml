@@ -5,9 +5,13 @@
              x:Class="Samples.MainPage">
 
     <Grid
-        RowDefinitions="1*,2*">
-        <controls:FreakyDeoPlayer Grid.Row="0" />
+        RowDefinitions="1*,1*,1*">
+        <controls:FreakyDeoPlayer
+            AutoPlay="True"
+            Source="http://vjs.zencdn.net/v/oceans.mp4"
+            Grid.Row="0" />
         <Label FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Text="Video player above" Grid.Row="1"/>
+
     </Grid>
 
 </ContentPage>

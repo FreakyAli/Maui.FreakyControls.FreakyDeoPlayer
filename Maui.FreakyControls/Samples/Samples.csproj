@@ -52,4 +52,8 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\Maui.FreakyControls.FreakyDeoPlayer\FreakyDeoPlayer.csproj" />
 	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="CommunityToolkit.Maui" />
+	  <None Remove="CommunityToolkit.Maui.Core" />
+	</ItemGroup>
 </Project>

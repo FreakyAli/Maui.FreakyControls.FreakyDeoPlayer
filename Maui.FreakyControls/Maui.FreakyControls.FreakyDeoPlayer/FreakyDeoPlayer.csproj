@@ -10,12 +10,10 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
 		<RootNamespace>Maui.FreakyControls</RootNamespace>
 		<AssemblyName>FreakyDeoPlayer</AssemblyName>
-
 		<AssemblyVersion>0.0.1</AssemblyVersion>
 		<AssemblyFileVersion>0.0.1</AssemblyFileVersion>
 		<Version>0.0.1</Version>
 		<NeutralLanguage>en</NeutralLanguage>
-
 		<PackageId>FreakyControls.FreakyDeoPlayer</PackageId>
 		<LangVersion>latest</LangVersion>
 		<Authors>FreakyAli</Authors>
@@ -24,14 +22,13 @@
 		<PackageIcon>maui_toolkit.png</PackageIcon>
 		<RepositoryUrl>https://github.com/FreakyAli/Maui.FreakyControls.FreakyDeoPlayer</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/FreakyAli/Maui.FreakyControls.FreakyDeoPlayer</PackageProjectUrl>
-
 		<PackageTags>Maui dotnet.Maui .net Maui FreakyControls Video VideoPlayer</PackageTags>
 		<PackageReleaseNotes>Basic implementation for Freaky Video Player Control</PackageReleaseNotes>
 		<Copyright>Copyright 2023</Copyright>
 		<PackOnBuild>true</PackOnBuild>
 		<SynchReleaseVersion>false</SynchReleaseVersion>
 		<NoWarn>1701;1702;IL2121;CS1573;CS1591;CS1570;CS8632</NoWarn>
-
+		<Configurations>Release;Debug</Configurations>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
 		<CreatePackage>false</CreatePackage>
@@ -40,7 +37,6 @@
 		<LangVersion>latest</LangVersion>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
-
 	<ItemGroup>
 		<None Remove="Platforms\Android\" />
 		<None Remove="Platforms\iOS\" />
@@ -48,6 +44,8 @@
 		<None Remove="Platforms\Windows\" />
 		<None Remove="Shared\" />
 		<None Remove="Shared\Source\" />
+		<None Include="maui_toolkit.png" Pack="true" Visible="false" PackagePath="" />
+		<None Remove="Shared\Converters\" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Platforms\Android\" />
@@ -56,6 +54,7 @@
 		<Folder Include="Platforms\Windows\" />
 		<Folder Include="Shared\" />
 		<Folder Include="Shared\Source\" />
+		<Folder Include="Shared\Converters\" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-android'">
 		<PackageReference Include="Xam.Plugins.Android.ExoPlayer" Version="2.18.8" />

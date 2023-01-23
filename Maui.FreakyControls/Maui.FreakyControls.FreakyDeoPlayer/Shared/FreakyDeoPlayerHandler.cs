@@ -12,10 +12,21 @@ public partial class FreakyDeoPlayerHandler : ViewHandler<FreakyDeoPlayer, Nativ
 {
 
     public static PropertyMapper<FreakyDeoPlayer, FreakyDeoPlayerHandler> Mapper =
-            new(ViewHandler.ViewMapper)
-            {
-                
-            };
+        new(ViewHandler.ViewMapper)
+        {
+            [nameof(FreakyDeoPlayer.Source)] = MapSource,
+            [nameof(FreakyDeoPlayer.AutoPlay)]= MapAutoPlay,
+        };
+
+    private static void MapAutoPlay(FreakyDeoPlayerHandler handler, FreakyDeoPlayer view)
+    {
+        handler.UpdateAutoPlay();
+    }
+
+    private static void MapSource(FreakyDeoPlayerHandler handler, FreakyDeoPlayer view)
+    {
+        handler.UpdateSource();
+    }
 
     public static CommandMapper<FreakyDeoPlayer, FreakyDeoPlayerHandler> CommandMapper =
         new(ViewHandler.ViewCommandMapper)

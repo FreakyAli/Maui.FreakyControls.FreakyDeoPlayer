@@ -7,5 +7,12 @@ public partial class FreakyDeoPlayerHandler
     {
         return new FreakyNativeiOSPlayer();
     }
+
+    private void UpdateSource()
+    {
+
+    }
+
+    private void UpdateAutoPlay() { }
 }
 
