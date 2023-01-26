@@ -3,16 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:Maui.FreakyControls;assembly=FreakyDeoPlayer"
              x:Class="Samples.MainPage">
-
     <Grid
-        RowDefinitions="1*,1*,1*">
+        Padding="0"
+        RowDefinitions="1*,2.5*">
         <controls:FreakyDeoPlayer
             AutoPlay="True"
-            Source="http://vjs.zencdn.net/v/oceans.mp4"
+            VerticalOptions="Start"
+            Source="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
             Grid.Row="0" />
-        <Label FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Text="Video player above" Grid.Row="1"/>
-
+        <Label
+            FontSize="Large"
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Start"
+            Text="Video player above"
+            Grid.Row="1"/>
     </Grid>
-
 </ContentPage>
 

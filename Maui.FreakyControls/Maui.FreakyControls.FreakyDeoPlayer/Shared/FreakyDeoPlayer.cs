@@ -27,5 +27,26 @@ public class FreakyDeoPlayer : View
         set => SetValue(AutoPlayProperty, value);
     }
 
+    public static readonly BindableProperty VolumeProperty = BindableProperty.Create(
+        nameof(Volume),
+        typeof(double),
+        typeof(FreakyDeoPlayer),
+        1.0,
+        BindingMode.TwoWay,
+        new BindableProperty.ValidateValueDelegate(ValidateVolume));
+
+    private static bool ValidateVolume(BindableObject bindable, object value)
+    {
+        var volume = (double)value;
+        return volume >= 0.0 && volume <= 1.0;
+    }
+
+    public double Volume
+    {
+        get => (double)GetValue(VolumeProperty);
+        set => SetValue(VolumeProperty, value);
+    }
+
+
 }
 

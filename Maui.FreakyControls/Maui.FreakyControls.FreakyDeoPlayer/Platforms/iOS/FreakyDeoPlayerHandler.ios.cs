@@ -13,6 +13,12 @@ public partial class FreakyDeoPlayerHandler
 
     }
 
-    private void UpdateAutoPlay() { }
+    private void UpdateAutoPlay()
+    {
+
+    }
+
+    private void UpdateVolume() { }
+
 }
 

@@ -16,7 +16,13 @@ public partial class FreakyDeoPlayerHandler : ViewHandler<FreakyDeoPlayer, Nativ
         {
             [nameof(FreakyDeoPlayer.Source)] = MapSource,
             [nameof(FreakyDeoPlayer.AutoPlay)]= MapAutoPlay,
+            [nameof(FreakyDeoPlayer.Volume)] = MapVolume,
         };
+
+    private static void MapVolume(FreakyDeoPlayerHandler handler, FreakyDeoPlayer view)
+    {
+        handler.UpdateVolume();
+    }
 
     private static void MapAutoPlay(FreakyDeoPlayerHandler handler, FreakyDeoPlayer view)
     {

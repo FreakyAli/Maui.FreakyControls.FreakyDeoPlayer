@@ -46,6 +46,8 @@
 		<None Remove="Shared\Source\" />
 		<None Include="maui_toolkit.png" Pack="true" Visible="false" PackagePath="" />
 		<None Remove="Shared\Converters\" />
+		<None Remove="Platforms\Android\Resources\" />
+		<None Remove="Platforms\Android\Resources\values\" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Platforms\Android\" />
@@ -55,6 +57,8 @@
 		<Folder Include="Shared\" />
 		<Folder Include="Shared\Source\" />
 		<Folder Include="Shared\Converters\" />
+		<Folder Include="Platforms\Android\Resources\" />
+		<Folder Include="Platforms\Android\Resources\values\" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-android'">
 		<PackageReference Include="Xam.Plugins.Android.ExoPlayer" Version="2.18.8" />

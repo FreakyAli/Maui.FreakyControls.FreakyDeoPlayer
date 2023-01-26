@@ -1,4 +1,5 @@
 ﻿using System;
+using AndroidX.Fragment.App;
 using Com.Google.Android.Exoplayer2;
 using Com.Google.Android.Exoplayer2.Source;
 using Com.Google.Android.Exoplayer2.UI;
@@ -17,18 +18,26 @@ public partial class FreakyDeoPlayerHandler
         var HttpDataSourceFactory = new DefaultHttpDataSource.Factory().SetAllowCrossProtocolRedirects(true);
         var MainDataSource = new ProgressiveMediaSource.Factory(HttpDataSourceFactory);
         var Exoplayer = new IExoPlayer.Builder(this.Context).SetMediaSourceFactory(MainDataSource).Build();
-
         var exoPlayerView = new FreakyNativeAndroidPlayer(this.Context)
         {
-            //UseController = false,
-            //ControllerAutoShow = false,
             Player = Exoplayer,
-            LayoutParameters = new LayoutParams(LayoutParams.WrapContent, LayoutParams.WrapContent)
+            LayoutParameters = new LayoutParams(LayoutParams.MatchParent, LayoutParams.WrapContent)
         };
         exoPlayerView.Player.AddListener(listener);
         exoPlayerView.Player.Prepare();
-        exoPlayerView.Player.PlayWhenReady = false;
+        exoPlayerView.Player.PlayWhenReady = true;
+        exoPlayerView.FullscreenButtonClick += ExoPlayerView_FullscreenButtonClick;
         return exoPlayerView;
+    }
+
+    private void ExoPlayerView_FullscreenButtonClick(object sender, StyledPlayerView.FullscreenButtonClickEventArgs e)
+    {
+        
+    }
+
+    private void UpdateVolume()
+    {
+        PlatformView.Player.Volume = VirtualView.Volume;
     }
 
     private void UpdateAutoPlay()
