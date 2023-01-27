@@ -6,7 +6,6 @@ using Com.Google.Android.Exoplayer2.UI;
 using Com.Google.Android.Exoplayer2.Upstream;
 using Microsoft.Maui.Controls.PlatformConfiguration;
 using LayoutParams = Android.Views.ViewGroup.LayoutParams;
-
 namespace Maui.FreakyControls;
 
 public partial class FreakyDeoPlayerHandler
@@ -17,11 +16,19 @@ public partial class FreakyDeoPlayerHandler
     {
         var HttpDataSourceFactory = new DefaultHttpDataSource.Factory().SetAllowCrossProtocolRedirects(true);
         var MainDataSource = new ProgressiveMediaSource.Factory(HttpDataSourceFactory);
-        var Exoplayer = new IExoPlayer.Builder(this.Context).SetMediaSourceFactory(MainDataSource).Build();
+        var exoplayer = new IExoPlayer.Builder(this.Context).
+            SetSeekBackIncrementMs(10000).
+            SetSeekForwardIncrementMs(10000).
+            SetMediaSourceFactory(MainDataSource).
+            Build();
+
         var exoPlayerView = new FreakyNativeAndroidPlayer(this.Context)
         {
-            Player = Exoplayer,
-            LayoutParameters = new LayoutParams(LayoutParams.MatchParent, LayoutParams.WrapContent)
+            Player = exoplayer,
+            ControllerShowTimeoutMs=4000,
+           
+            ControllerHideOnTouch = true,
+            LayoutParameters = new LayoutParams(LayoutParams.MatchParent, LayoutParams.WrapContent),
         };
         exoPlayerView.Player.AddListener(listener);
         exoPlayerView.Player.Prepare();
@@ -32,12 +39,12 @@ public partial class FreakyDeoPlayerHandler
 
     private void ExoPlayerView_FullscreenButtonClick(object sender, StyledPlayerView.FullscreenButtonClickEventArgs e)
     {
-        
+
     }
 
     private void UpdateVolume()
     {
-        PlatformView.Player.Volume = VirtualView.Volume;
+        PlatformView.Player.Volume = (float)VirtualView.Volume;
     }
 
     private void UpdateAutoPlay()

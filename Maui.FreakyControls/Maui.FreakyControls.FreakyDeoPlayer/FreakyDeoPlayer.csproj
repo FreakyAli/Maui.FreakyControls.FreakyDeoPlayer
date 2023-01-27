@@ -48,6 +48,7 @@
 		<None Remove="Shared\Converters\" />
 		<None Remove="Platforms\Android\Resources\" />
 		<None Remove="Platforms\Android\Resources\values\" />
+		<None Remove="Platforms\Android\NativeControls\" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Platforms\Android\" />
@@ -59,6 +60,7 @@
 		<Folder Include="Shared\Converters\" />
 		<Folder Include="Platforms\Android\Resources\" />
 		<Folder Include="Platforms\Android\Resources\values\" />
+		<Folder Include="Platforms\Android\NativeControls\" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-android'">
 		<PackageReference Include="Xam.Plugins.Android.ExoPlayer" Version="2.18.8" />
